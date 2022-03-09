@@ -4,6 +4,27 @@
 install_requirements:
 	@pip install -r requirements.txt
 
+# ----------------------------------
+#    	HEROKU COMMANDS (COPIED IN)
+# ----------------------------------
+
+streamlit:
+	-@streamlit run app.py
+
+heroku_login:
+	-@heroku login
+
+heroku_create_app:
+	-@heroku create ${APP_NAME}
+
+deploy_heroku:
+	-@git push heroku master
+	-@heroku ps:scale web=1
+
+# ----------------------------------
+#         OTHER COMMANDS
+# ----------------------------------
+
 check_code:
 	@flake8 scripts/* b-sustainability-fe/*.py
 
